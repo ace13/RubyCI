@@ -59,5 +59,7 @@ def puts_right(pos, string)
     width = (pos % columns) + string.pure_string.length # Don't count ANSI escape codes
     width = (width % columns) if width > columns
     print " " * (columns - width)
-    puts string
+    # TODO: Have a thought about this
+    print string if OS.windows?
+    puts string if OS.unix?
 end

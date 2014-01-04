@@ -6,7 +6,7 @@ require_relative 'actions.rb'
 
 class Project
 
-	attr_accessor :name, :force
+	attr_accessor :name, :force, :skip
 
 	def initialize(file)
 		return unless file
@@ -22,21 +22,24 @@ class Project
 	def build!
 		return unless @data
 
-		puts "Starting build of project #{@data["name"]}!", ""
+		puts "Skipping build of project #{@data["name"]}!", "" if @skip
+		unless @skip then
+			puts "Starting build of project #{@data["name"]}!", ""
 
-		@build.update(@data["git"])
-		puts
+			@build.update(@data["git"])
+			puts
 
-		puts "Skipping build, last build on this revision succeeded. Use -f to force the issue" if @build.revision == @build.last_revision and @build.last_succeeded and not @force
-		return true if @build.revision == @build.last_revision and @build.last_succeeded and not @force
+			puts "Skipping build, last build on this revision succeeded. Use -f to force the issue" if @build.revision == @build.last_revision and @build.last_succeeded and not @force
+			return true if @build.revision == @build.last_revision and @build.last_succeeded and not @force
 
-		prepared = @build.prepare_build @buildinfo["before_build"] unless @buildinfo["before_build"].is_a? NilClass or @buildinfo["before_build"].empty?
-		puts "Prebuild failed, aborting build." if not prepared
-		return false unless prepared
-		puts
+			prepared = @build.prepare_build @buildinfo["before_build"] unless @buildinfo["before_build"].is_a? NilClass or @buildinfo["before_build"].empty?
+			puts "Prebuild failed, aborting build." if not prepared
+			return false unless prepared
+			puts
 
-		@build.build(@buildinfo["build"])
-		puts
+			@build.build(@buildinfo["build"])
+			puts
+		end
 
 		puts "Running post-build!"
 		if @buildinfo["after_build"] then
@@ -59,7 +62,7 @@ class Project
 	private
 
 	def run_actions(from)
- 		if from.is_a? Array then
+		if from.is_a? Array then
 			from.each do |arr| run_actions arr end
 		else
 			from.each do |action, data|
@@ -90,6 +93,7 @@ if __FILE__ == $0 then
 
 		if (ARGV[1] or '')[0] == '-' then
 			VERBOSE = true if ARGV[1]['v']
+			a.skip = true  if ARGV[1]['s']
 			a.force = true if ARGV[1]['f']
 		end
 
@@ -97,7 +101,7 @@ if __FILE__ == $0 then
 	else
 		info = <<INFO
 Usage:
-	$0 path/to/buildfile.yml [-fv]
+	$0 path/to/buildfile.yml [-fsv]
 INFO
 
 		puts info

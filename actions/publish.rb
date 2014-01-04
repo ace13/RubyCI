@@ -3,7 +3,7 @@ require 'fileutils.rb'
 
 PROTOCOLS = {
 	:ftp => Proc.new do |file, host, destination|
-		raise "No login details for ftp://#{host}" unless CONFIG["publish"]["ftp"][host]
+		raise "No login details for ftp://#{host}" unless CONFIG.has_key? "publish" and CONFIG["publish"]["ftp"].has_key? host
 
 		login = CONFIG["publish"]["ftp"][host]
 
