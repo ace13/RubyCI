@@ -37,7 +37,6 @@ add_action("email") do |build, action|
 	message = BASE_MAIL[:header] % { :time => build.analytics[:TotalTime].round(2) }
 
 	build.analytics[:Projects].each do |project, data|
-		next if ["ALL_BUILD", "ZERO_CHECK"].member? project
 		message += BASE_MAIL[:project] % { :color => data[:Success] ? "#070" : "#700", :name => project, :time => data[:Time].round(2), :success => data[:Success] ? "Succeeded" : "Failed" }
 		
 		useful = { :Warnings => 0, :Errors => 0, :ErrorMessages => [] }
