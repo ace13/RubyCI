@@ -6,7 +6,7 @@ email:
         user: user@gmail.com
         password: password
         force_email: user@gmail.com
-public:
+publish:
     ftp:
         ftp.host.com:
             user: ftp
