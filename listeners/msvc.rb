@@ -59,13 +59,9 @@ class MSVCAnalysist
 	end
 
 	def MSVCAnalysist.does?(compilers)
-		doi = false
-
-		compilers.each do |comp|
-			doi = true if comp =~ /(msvc|visual studio)/i
-		end
-
-		doi
+		compilers.any? { |comp|
+			comp =~ /(msvc|visual studio)/i
+		}
 	end
 
 	private

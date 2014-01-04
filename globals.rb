@@ -54,8 +54,8 @@ class String
 end
 
 def puts_right(pos, string) 
-    columns = ENV["COLUMNS"]
-    columns = 80 unless columns
+    columns = (ENV["COLUMNS"] or `tput cols`).to_i if OS.unix?
+    columns = (ENV["COLUMNS"] or 80).to_i if OS.windows?
     width = (pos % columns) + string.pure_string.length # Don't count ANSI escape codes
     width = (width % columns) if width > columns
     print " " * (columns - width)
