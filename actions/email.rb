@@ -16,8 +16,7 @@ Subject: [%{succeeded}] %{name} (%{revision})
   <body>
     <div style="font-weight: bold; color: #444; margin: 15px;">%{name}&nbsp;&nbsp;-&nbsp;&nbsp;%{time}</div>
     <div style="width: 650px; border-radius: 5px; box-shadow: #eee 2px 2px 3px 3px; margin: auto 0; padding: 5px; border: 1px solid black;">
-%{message}
-    </div>
+%{message}    </div>
   </body>
 </html>
 eos
@@ -60,7 +59,7 @@ add_action("email") do |build, action|
 		errorDisp = (errors > 0 or errorDelta != 0)
 
 		if warningDisp or errorDisp then
-			message += "\n      <span style=\"float: right; text-align: right;\">With"
+			message += "<span style=\"float: right; text-align: right;\">With"
 			message += " #{useful[:Warnings]} warning#{useful[:Warnings] == 1 ? "" : "s"}" if warningDisp
 			message += "(#{warningDelta > 0 ? "<span style=\"color: #f22;\">+" : "<span style=\"color: #2f2;\">-"}#{warningDelta.abs}</span>)" if warningDelta != 0
 			message += " and" if warningDisp and errorDisp
