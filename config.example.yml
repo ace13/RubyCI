@@ -1,0 +1,25 @@
+email:
+    smtp:
+        host: smtp.gmail.com
+        port: 465
+        helo: gmail.com
+        user: user@gmail.com
+        password: password
+        force_email: user@gmail.com
+public:
+    ftp:
+        ftp.host.com:
+            user: ftp
+            password: ftp
+    scp:
+        ssh.host.com:
+            user: ssh
+            password: ssh
+
+path:
+    windows:
+        - "C:\\Program Files (x86)\\CMake 2.8\\bin"
+        - "C:\\Program Files (x86)\\Cygwin\\usr\\bin"
+    linux:
+        - /opt/cmake/bin
+        - /opt/icc/bin

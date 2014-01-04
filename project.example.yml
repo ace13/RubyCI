@@ -1,0 +1,70 @@
+name: RubyCI Example Project
+
+source: ../source
+git: origin/master
+
+windows:
+  compiler:
+    - CMake
+    - Visual Studio 2010
+
+  before_build:
+    - ?devenv.com Project.sln /clean Release # This is an optional command now, doesn't matter if it fails
+    - cmake .
+
+  build:
+    - devenv.com Project.sln /build Release
+
+  after_build:
+    onsuccess: # If the build succeeded
+      publish: # Publish a file
+        source: Release/project.exe
+        destination: ftp://host.com:/dev/null # Because why not?
+      irc: # Send a message to and IRC channel or user
+        network: irc.freenode.net # Can also take a port with host:port
+        nick: # The nicks to try using, if all fail then it will randomly generate one instead
+          - IAmABuildBot
+          - AlternaiveBot
+        user: RubyCI # Optional
+        realname: The Ruby Build System # Optional
+        autosendcmd: /msg NickServ identify hereismypassword # Optional, can take multiple lines to send
+        channel: "#channel" # Send to all these channels
+        user: # Send to all these users
+          - User1 # and yes, you can do this with channels too
+          - User2
+        type: privmsg # or type can also be notify
+
+    # onchange: # If the build succeeded where it failed last time, or failed if it succeded last
+
+    onfailure: # If the build failed
+      email:
+        recipient:
+          - failure1@domain.com
+          - failure2@domain.com
+
+    regardless: # Regardless whether it succeeded or failed
+      - email: # Send a build report as an email
+          recipient: email@domain.com
+      - publish:
+          source: build.log
+          destination: ftp://haxalot.com:public_html/projects/OpenMW/OpenMW-latest-build32.log
+      - publish:
+          source: .analytics.json
+          destination: ftp://haxalot.com:public_html/projects/OpenMW/OpenMW-latest-analytics32.json
+
+linux:
+  compiler:
+    - CMake
+    - GCC
+
+  before_build:
+    - ?make clean
+    - cmake .
+
+  build:
+    - make -j2
+
+  after_build:
+    onchange:
+      email:
+        recipient: nowhere@nohow.nope

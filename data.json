@@ -1,0 +1,335 @@
+{
+  "ZERO_CHECK": {
+    "ID": 1,
+    "Name": "ZERO_CHECK",
+    "Warnings": [],
+    "WarningCount": {},
+    "Errors": []
+  },
+  "shiny": {
+    "ID": 2,
+    "Name": "shiny",
+    "Warnings": [],
+    "WarningCount": {},
+    "Errors": []
+  },
+  "sdl4ogre": {
+    "ID": 3,
+    "Name": "sdl4ogre",
+    "Warnings": [
+      {
+        "File": "extern\\sdl4ogre\\sdlinputwrapper.cpp",
+        "Line": 178,
+        "ID": "C4800",
+        "Message": "'int' : forcing value to bool 'true' or 'false' (performance warning)"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlinputwrapper.cpp",
+        "Line": 183,
+        "ID": "C4800",
+        "Message": "'const Uint8' : forcing value to bool 'true' or 'false' (performance warning)"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlcursormanager.cpp",
+        "Line": 111,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'int' to 'const float', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlcursormanager.cpp",
+        "Line": 130,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlcursormanager.cpp",
+        "Line": 130,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlcursormanager.cpp",
+        "Line": 130,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlcursormanager.cpp",
+        "Line": 130,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlwindowhelper.cpp",
+        "Line": 86,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlwindowhelper.cpp",
+        "Line": 86,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlwindowhelper.cpp",
+        "Line": 86,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      },
+      {
+        "File": "extern\\sdl4ogre\\sdlwindowhelper.cpp",
+        "Line": 86,
+        "ID": "C4244",
+        "Message": "'argument' : conversion from 'float' to 'Uint8', possible loss of data"
+      }
+    ],
+    "WarningCount": {
+      "C4800": 2,
+      "C4244": 9
+    },
+    "Errors": []
+  },
+  "components": {
+    "ID": 4,
+    "Name": "components",
+    "Warnings": [
+      {
+        "File": "components\\terrain\\material.cpp",
+        "Line": 167,
+        "ID": "C4018",
+        "Message": "'<' : signed/unsigned mismatch"
+      },
+      {
+        "File": "components\\terrain\\material.cpp",
+        "Line": 281,
+        "ID": "C4018",
+        "Message": "'<' : signed/unsigned mismatch"
+      }
+    ],
+    "WarningCount": {
+      "C4018": 2
+    },
+    "Errors": []
+  },
+  "oics": {
+    "ID": 5,
+    "Name": "oics",
+    "Warnings": [
+      {
+        "File": "extern\\oics\\ICSInputControlSystem.cpp",
+        "Line": 125,
+        "ID": "C4305",
+        "Message": "'initializing' : truncation from 'double' to 'float'"
+      }
+    ],
+    "WarningCount": {
+      "C4305": 1
+    },
+    "Errors": []
+  },
+  "shiny.OgrePlatform": {
+    "ID": 6,
+    "Name": "shiny.OgrePlatform",
+    "Warnings": [
+      {
+        "File": "extern\\shiny\\Platforms\\Ogre\\OgrePass.cpp",
+        "Line": 112,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      }
+    ],
+    "WarningCount": {
+      "C4101": 1
+    },
+    "Errors": []
+  },
+  "omwlauncher": {
+    "ID": 7,
+    "Name": "omwlauncher",
+    "Warnings": [],
+    "WarningCount": {},
+    "Errors": []
+  },
+  "esmtool": {
+    "ID": 8,
+    "Name": "esmtool",
+    "Warnings": [],
+    "WarningCount": {},
+    "Errors": []
+  },
+  "mwiniimport": {
+    "ID": 9,
+    "Name": "mwiniimport",
+    "Warnings": [
+      {
+        "File": "apps\\mwiniimporter\\main.cpp",
+        "Line": 76,
+        "ID": "C4800",
+        "Message": "'unsigned int' : forcing value to bool 'true' or 'false' (performance warning)"
+      }
+    ],
+    "WarningCount": {
+      "C4800": 1
+    },
+    "Errors": []
+  },
+  "openmw": {
+    "ID": 10,
+    "Name": "openmw",
+    "Warnings": [
+      {
+        "File": "apps\\openmw\\mwrender\\occlusionquery.cpp",
+        "Line": 35,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwrender\\localmap.cpp",
+        "Line": 274,
+        "ID": "C4245",
+        "Message": "'=' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch"
+      },
+      {
+        "File": "apps\\openmw\\mwgui\\dialogue.cpp",
+        "Line": 530,
+        "ID": "C4146",
+        "Message": "unary minus operator applied to unsigned type, result still unsigned"
+      },
+      {
+        "File": "apps\\openmw\\mwgui\\inventorywindow.cpp",
+        "Line": 45,
+        "ID": "C4245",
+        "Message": "'initializing' : conversion from 'int' to 'size_t', signed/unsigned mismatch"
+      },
+      {
+        "File": "apps\\openmw\\mwgui\\bookpage.cpp",
+        "Line": 770,
+        "ID": "C4245",
+        "Message": "'=' : conversion from 'int' to 'size_t', signed/unsigned mismatch"
+      },
+      {
+        "File": "apps\\openmw\\mwgui\\bookpage.cpp",
+        "Line": 920,
+        "ID": "C4245",
+        "Message": "'=' : conversion from 'int' to 'size_t', signed/unsigned mismatch"
+      },
+      {
+        "File": "apps\\openmw\\mwgui\\companionwindow.cpp",
+        "Line": 29,
+        "ID": "C4245",
+        "Message": "'initializing' : conversion from 'int' to 'size_t', signed/unsigned mismatch"
+      },
+      {
+        "File": "apps\\openmw\\mwscript\\transformationextensions.cpp",
+        "Line": 291,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwscript\\transformationextensions.cpp",
+        "Line": 291,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwscript\\transformationextensions.cpp",
+        "Line": 383,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\soundmanagerimp.cpp",
+        "Line": 337,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\soundmanagerimp.cpp",
+        "Line": 365,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\openal_output.cpp",
+        "Line": 288,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\openal_output.cpp",
+        "Line": 460,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\openal_output.cpp",
+        "Line": 769,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\openal_output.cpp",
+        "Line": 847,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\openal_output.cpp",
+        "Line": 886,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\openal_output.cpp",
+        "Line": 928,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwsound\\ffmpeg_decoder.cpp",
+        "Line": 196,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwworld\\containerstore.cpp",
+        "Line": 274,
+        "ID": "C4101",
+        "Message": "'e' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwmechanics\\pathfinding.cpp",
+        "Line": 122,
+        "ID": "C4101",
+        "Message": "'fg' : unreferenced local variable"
+      },
+      {
+        "File": "apps\\openmw\\mwgui\\container.cpp",
+        "Line": 122,
+        "ID": "C4245",
+        "Message": "'initializing' : conversion from 'int' to 'size_t', signed/unsigned mismatch"
+      }
+    ],
+    "WarningCount": {
+      "C4101": 15,
+      "C4245": 6,
+      "C4146": 1
+    },
+    "Errors": []
+  },
+  "ALL_BUILD": {
+    "ID": 11,
+    "Name": "ALL_BUILD",
+    "Warnings": [],
+    "WarningCount": {},
+    "Errors": []
+  },
+  "PACKAGE": {
+    "ID": 12,
+    "Name": "PACKAGE",
+    "Warnings": [],
+    "WarningCount": {},
+    "Errors": []
+  }
+}
