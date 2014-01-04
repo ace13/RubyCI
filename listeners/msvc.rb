@@ -4,6 +4,7 @@ class MSVCAnalysist
 
 	def initialize
 		@projects = {}
+		@toskip = ["ALL_BUILD", "ZERO_CHECK"] # Ignore CMake projects
 	end
 
 	def analyse_line(line)
@@ -33,13 +34,18 @@ class MSVCAnalysist
 
 		totaltime = 0
 
-		temp.each do |id, project|
-			totaltime = totaltime + project[:Time] if project[:Time]
-			project[:MessageCount] = {}
-			project[:Messages].each do |message|
-				code = message[:Code]
-				project[:MessageCount][code] = 0 unless project[:MessageCount][code]
-				project[:MessageCount][code] = project[:MessageCount][code] + 1
+		temp.delete_if do |id, project|
+			if @toskip.include? project[:Name] then
+				true
+			else
+				totaltime = totaltime + project[:Time] if project[:Time]
+				project[:MessageCount] = {}
+				project[:Messages].each do |message|
+					code = message[:Code]
+					project[:MessageCount][code] = 0 unless project[:MessageCount][code]
+					project[:MessageCount][code] = project[:MessageCount][code] + 1
+				end
+				false
 			end
 		end
 
@@ -53,11 +59,13 @@ class MSVCAnalysist
 	end
 
 	def MSVCAnalysist.does?(compilers)
+		doi = false
+
 		compilers.each do |comp|
-			return true if comp =~ /(msvc|visual studio)/i
+			doi = true if comp =~ /(msvc|visual studio)/i
 		end
 
-		false
+		doi
 	end
 
 	private
