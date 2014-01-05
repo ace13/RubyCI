@@ -30,8 +30,7 @@ add_action("publish") do |build, action|
 	unless source.is_a? NilClass or source.empty? then
 		source.sort! { |b,a| File.mtime(a) <=> File.mtime(b) }
 
-		destination = action["destination"].partition("://")[2]
-		destination[1] = parse_string(destination[1], build)
+		destination = parse_string(action["destination"].partition("://")[2], build)
 
 		PROTOCOLS[protocol].call(source[0], *destination.split(":"))
 	end
