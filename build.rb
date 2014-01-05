@@ -94,15 +94,16 @@ class Build
 		actions.each do |cmd|
 			optional = cmd[0] == '?'
 			cmd = cmd[1..-1] if optional
+			args = cmd.scan(/(?:["'](?:\\.|[^"'])*["']|[^"' ])+/).map { |v| v.chomp('"').chomp("'").reverse.chomp('"').chomp("'").reverse }
 
 			print "-  #{cmd} "
 			print "(optional) " if optional
 			
 			if block_given? then
-				IO.popen([@env, *cmd.split, :err => [:child, :out]], &Proc.new)
+				IO.popen([@env, *args, :err => [:child, :out]], &Proc.new)
 			else
-				IO.popen([@env, *cmd.split, :err => [:child, :out]]) do |fd| fd.each_line do |_| end end unless VERBOSE
-				IO.popen([@env, *cmd.split]) do |fd| fd.each_line do |line| $stdout << line end end if VERBOSE
+				IO.popen([@env, *args, :err => [:child, :out]]) do |fd| fd.each_line do |_| end end unless VERBOSE
+				IO.popen([@env, *args]) do |fd| fd.each_line do |line| $stdout << line end end if VERBOSE
 			end
 
 			puts_right(cmd.length+(optional ? 15 : 4), "[#{"OK".green}]") if $?.exitstatus == 0
