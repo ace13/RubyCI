@@ -52,6 +52,8 @@ add_action("email") do |build, action|
 
 		warnings = useful[:Warnings]
 		errors = useful[:Errors]
+		warningDelta = 0
+		errorDelta = 0
 		warningDelta = warnings - last_useful[:Warnings] if last_useful
 		errorDelta = errors - last_useful[:Errors] if last_useful
 
